@@ -5,21 +5,29 @@ import mongoose from 'mongoose';
 const PORT = process.env.PORT || 9000;
 const app = express()
 app.use(express.json());
+
 // app.use(express.urlencoded())
 app.use(cors())
 dotenv.config()
 //create new db
 const MONGO_URL = process.env.MONGO_URL;
-console.log(MONGO_URL)
+// console.log(MONGO_URL)
 console.log(process.env.PORT)
 
-mongoose.connect(MONGO_URL, {
+mongoose.connect(MONGO_URL || 'mongodb://localhost/users', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 
 }, () => {
     console.log("DB CONNECTED")
 })
+
+
+
+
+
+
+
 
 //create Schema 
 
