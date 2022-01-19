@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-
+const port = process.env.PORT || 8000;
 const app = express()
 app.use(express.json());
 app.use(express.urlencoded())
@@ -90,6 +90,6 @@ app.post("/register", (req, res) => {
 
 })
 
-app.listen(9002, () => {
-    console.log("BE started at port 9002")
+app.listen(port, () => {
+    console.log("port started at port ", port)
 })
