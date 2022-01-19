@@ -1,14 +1,15 @@
 import express from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv'
 import mongoose from 'mongoose';
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 9200;
 const app = express()
 app.use(express.json());
 app.use(express.urlencoded())
 app.use(cors())
-
+dotenv.config()
 //create new db
-const DB = 'mongodb+srv://aniket:aniket123@cluster0.2iah0.mongodb.net/hackathon?retryWrites=true&w=majority'
+const DB = 'mongodb+srv://aniket:aniket123@cluster0.2iah0.mongodb.net'
 
 mongoose.connect(DB, {
     useNewUrlParser: true,
