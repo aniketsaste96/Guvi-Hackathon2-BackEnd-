@@ -48,7 +48,7 @@ const User = new mongoose.model("User", userSchema);
 
 
 //ROUTES
-//get or post as of now we need post only
+
 app.post("/login", (req, res) => {
     const { email, password } = req.body;
 
