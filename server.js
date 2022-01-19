@@ -8,7 +8,7 @@ app.use(express.urlencoded())
 app.use(cors())
 
 //create new db
-const DB = 'mongodb+srv://aniket:aniket123@cluster0.2iah0.mongodb.net'
+const DB = 'mongodb+srv://aniket:aniket123@cluster0.2iah0.mongodb.net/hackathon?retryWrites=true&w=majority'
 
 mongoose.connect(DB, {
     useNewUrlParser: true,
