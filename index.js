@@ -2,16 +2,18 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
-const port = process.env.PORT || 9200;
+const PORT = process.env.PORT || 9000;
 const app = express()
 app.use(express.json());
-app.use(express.urlencoded())
+// app.use(express.urlencoded())
 app.use(cors())
 dotenv.config()
 //create new db
-const DB = 'mongodb+srv://aniket:aniket123@cluster0.2iah0.mongodb.net'
+const MONGO_URL = process.env.MONGO_URL;
+console.log(MONGO_URL)
+console.log(process.env.PORT)
 
-mongoose.connect(DB, {
+mongoose.connect(MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 
@@ -91,6 +93,6 @@ app.post("/register", (req, res) => {
 
 })
 
-app.listen(port, () => {
-    console.log("port started at port ", port)
+app.listen(PORT, () => {
+    console.log("port started at port ", PORT);
 })
